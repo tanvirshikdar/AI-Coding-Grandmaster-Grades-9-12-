@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculator using JS</title>
+    <style>
+        body {
+            background: #eee;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+            font-family: sans-serif;
+        }
+
+        .calc {
+            background: #111;
+            padding: 15px;
+            border-radius: 8px;
+            width: 260px;
+        }
+
+        input {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 10px;
+            text-align: right;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+
+        button {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .clear {
+            width: 100%;
+            margin-top: 5px;
+            background: red;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calc">
+        <input id="v" readonly>
+        <div class="grid">
+            <button onclick="s('7')">7</button><button onclick="s('8')">8</button><button
+                onclick="s('9')">9</button><button onclick="s('/')">/</button>
+            <button onclick="s('4')">4</button><button onclick="s('5')">5</button><button
+                onclick="s('6')">6</button><button onclick="s('*')">x</button>
+            <button onclick="s('1')">1</button><button onclick="s('2')">2</button><button
+                onclick="s('3')">3</button><button onclick="s('-')">-</button>
+            <button onclick="s('0')">0</button><button onclick="s('.')">.</button><button
+                onclick="e()">=</button><button onclick="s('+')">+</button>
+        </div>
+        <button class="clear" onclick="v.value=''">CLEAR</button>
+    </div>
+
+    <script>
+        const v = document.getElementById('v');
+
+        function s(val) {
+            v.value += val;
+        }
+
+        function e() {
+            try {
+                v.value = eval(v.value) || "";
+            } catch {
+                v.value = "Error";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
