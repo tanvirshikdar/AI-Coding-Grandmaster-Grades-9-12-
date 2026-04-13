@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@300;400;700&display=swap');
+
+body {
+    font-family: 'Big Shoulders Text', cursive;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.nav-flex-row {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-flex-row li a {
+    color: #000;
+    font-size: 1.5em;
+    padding: 20px 15px;
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.nav-flex-row li a:hover {
+    background: #E7E7E7;
+}
+
+/* Banner */
+.section-intro {
+    height: 80vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1200');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-intro h1 {
+    color: #fff;
+    font-size: 4em;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.link-to-book {
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 10px 25px;
+    text-decoration: none;
+    font-size: 1.5em;
+    transition: 0.3s;
+}
+
+.link-to-book:hover {
+    background: #fff;
+    color: #333;
+}
+
+/* Portfolio Section */
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+/* Social Section */
+.social-section {
+    background-color: #f8f9fa;
+}
+
+.social-icons a {
+    font-size: 2em;
+    margin: 0 15px;
+    color: #333;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #f04c23;
+    transform: translateY(-5px);
+    display: inline-block;
+}
+
+/* Footer Section */
+.footer-section {
+    background-color: #222;
+    color: #fff;
+}
+
+.footer-section h4 {
+    color: #f04c23;
+    margin-bottom: 20px;
+}
+
+.footer-section p {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+/* Utility */
+.about-section {
+    background-color: #fff;
+    padding: 80px 30px;
+    text-align: center;
+}
+
+.feature-box {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #333;
+    border: none;
+    font-size: 1.2em;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .section-intro h1 {
+        font-size: 2.5em;
+    }
+
+    .nav-flex-row li a {
+        font-size: 1em;
+        padding: 15px 10px;
+    }
+}

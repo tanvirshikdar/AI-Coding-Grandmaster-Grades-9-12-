@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fooddddie's Kitchen | Portfolio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <ul class="nav-flex-row">
+            <li class="nav-item"><a href="#about">About</a></li>
+            <li class="nav-item"><a href="#portfolio">Gallery</a></li>
+            <li class="nav-item"><a href="#reservation">Reservation</a></li>
+            <li class="nav-item"><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="section-intro">
+        <header>
+            <h1>Welcome To Fooddddie's Kitchen</h1>
+        </header>
+        <div class="link-to-book-wrapper">
+            <a class="link-to-book" href="#reservation">Book a table</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <article>
+            <h3>Our Specialities</h3>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <p><strong>Fresh Ingredients</strong></p>
+                        <p>Sourced daily from local organic farms.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <p><strong>Expert Chefs</strong></p>
+                        <p>Mastering authentic culinary traditions.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <p><strong>Cosy Ambience</strong></p>
+                        <p>The perfect spot for your family dinners.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <section id="portfolio" class="portfolio-section container py-5">
+        <h2 class="text-center mb-5">Our Food Portfolio</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500" class="img-fluid"
+                        alt="Breakfast">
+                    <div class="portfolio-overlay">
+                        <h5>Healthy Bowls</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7bb7445?w=500" class="img-fluid"
+                        alt="Pancakes">
+                    <div class="portfolio-overlay">
+                        <h5>Signature Sweets</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500" class="img-fluid"
+                        alt="Pizza">
+                    <div class="portfolio-overlay">
+                        <h5>Italian Classics</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="reservation" class="container py-5">
+        <div class="row-flex">
+            <div class="flex-column-form">
+                <h3>Make a booking</h3>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" placeholder="Enter your phone number" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+            <div id="contact" class="opening-time">
+                <h3>Opening times</h3>
+                <p>
+                    <span>Monday—Thursday: 08:00 — 22:00</span>
+                    <span>Friday—Saturday: 09:00 — 23:00</span>
+                    <span>Sunday: 10:00 — 17:00</span>
+                </p>
+            </div>
+
+            <div class="contact-address">
+                <h3>Contact</h3>
+                <p>
+                    <span>123-456-7890</span>
+                    <span>15 DFL Food court</span>
+                    <span>Chennai 600125</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
