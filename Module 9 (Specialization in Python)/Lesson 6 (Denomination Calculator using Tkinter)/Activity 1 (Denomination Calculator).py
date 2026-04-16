@@ -7,13 +7,18 @@ root.title('Denomination Counter')
 root.configure(bg='light blue')
 root.geometry('650x400')
 
-image_path = r"C:\Users\tanvi\OneDrive\Documents\Codingal\Courses\AI & Coding Grandmaster (Grades 9-12)\Module 9 (Specialization in Python)\Lesson 3 (Operations on a File – Part 2)\ACP (File Handling - Operations Part 2)\app_img.jpg"
+image_path = r"C:\Users\tanvi\OneDrive\Documents\Codingal\Courses\AI & Coding Grandmaster (Grades 9-12)\Module 9 (Specialization in Python)\Lesson 6 (Denomination Calculator using Tkinter)\app_img.jpg"
 
-upload = Image.open(image_path)
-upload = upload.resize((300, 300))
-image = ImageTk.PhotoImage(upload)
-label = Label(root, image=image, bg='light blue')
-label.place(x=180, y=20)
+try:
+    upload = Image.open(image_path)
+    upload = upload.resize((300, 300))
+    image = ImageTk.PhotoImage(upload)
+    label = Label(root, image=image, bg='light blue')
+    label.place(x=180, y=20)
+except FileNotFoundError:
+    # Adding a backup label just in case the path changes again!
+    label = Label(root, text="[Image Not Found]", bg='light blue', fg='red')
+    label.place(x=250, y=150)
 
 label1 = Label(root, text="Hey User! Welcome to Denomination Counter Application.", bg='light blue')
 label1.place(relx=0.5, y=340, anchor=CENTER)
@@ -46,13 +51,15 @@ def topwin():
 
     def calculator():
         try:
-            global amount
-            amount = int(entry.get())
-            note2000 = amount // 2000
-            amount %= 2000
-            note500 = amount // 500
-            amount %= 500
-            note100 = amount // 100
+            total_amount = int(entry.get())
+            
+            note2000 = total_amount // 2000
+            remaining = total_amount % 2000
+            
+            note500 = remaining // 500
+            remaining %= 500
+            
+            note100 = remaining // 100
             
             t1.delete(0, END)
             t2.delete(0, END)
@@ -62,7 +69,7 @@ def topwin():
             t2.insert(0, str(note500))
             t3.insert(0, str(note100))
         except ValueError:
-            messagebox.showerror("Error", "Please enter a valid number")
+            messagebox.showerror("Error", "Please enter a valid whole number")
 
     btn = Button(top, text='Calculate', command=calculator, bg='brown', fg='white')
 
