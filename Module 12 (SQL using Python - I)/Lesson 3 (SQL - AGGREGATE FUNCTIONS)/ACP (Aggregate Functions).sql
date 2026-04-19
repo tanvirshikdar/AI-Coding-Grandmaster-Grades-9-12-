@@ -1,0 +1,27 @@
+CREATE TABLE IF NOT EXISTS EMPLOYEES (
+    EMP_ID TEXT PRIMARY KEY,
+    EMP_NAME TEXT,
+    DEPARTMENT TEXT,
+    SALARY REAL
+);
+
+INSERT INTO EMPLOYEES (EMP_ID, EMP_NAME, DEPARTMENT, SALARY)
+VALUES
+    ('101', 'Alice', 'Sales', 50000),
+    ('102', 'Bob', 'Engineering', 75000),
+    ('103', 'Charlie', 'Sales', 55000),
+    ('104', 'David', 'Marketing', 45000),
+    ('105', 'Eve', 'Engineering', 80000),
+    ('106', 'Frank', 'HR', 40000);
+
+SELECT SUM(SALARY) AS Total_Payroll 
+FROM EMPLOYEES;
+
+SELECT AVG(SALARY) AS Average_Salary 
+FROM EMPLOYEES;
+
+SELECT COUNT(DISTINCT DEPARTMENT) AS Department_Count 
+FROM EMPLOYEES;
+
+SELECT MIN(SALARY) AS Lowest_Salary, MAX(SALARY) AS Highest_Salary 
+FROM EMPLOYEES;
