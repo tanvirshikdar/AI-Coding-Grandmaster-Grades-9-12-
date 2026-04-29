@@ -78,7 +78,10 @@ def load_image(filename):
 
 def run_example():
     try:
-        img = load_image('image.jpg')
+        # Absolute path to the test image
+        img_path = r"C:\Users\tanvi\OneDrive\Documents\Codingal\Courses\AI & Coding Grandmaster (Grades 9-12)\Module 21 (Deep Learning - II)\Lesson 4 (Image classifier using CNN part – 2)\ACP (Classify whether Cat or Dog)\image.jpg"
+        
+        img = load_image(img_path)
         loaded_model = load_model('cat_dog_classifier.h5')
         result = loaded_model.predict(img)
         
@@ -89,6 +92,6 @@ def run_example():
             print("Final Prediction: Cat") 
             
     except FileNotFoundError:
-        print("\n[NOTE] Training finished successfully! To test the prediction function, please save a picture named 'test_pet.jpg' in the same folder as this script and run it again.")
+        print("\n[ERROR] Image not found. Please double-check the path provided in the run_example function.")
 
 run_example()

@@ -9,14 +9,16 @@ from tensorflow.keras.optimizers import SGD
 import matplotlib.pyplot as plt
 import numpy as np
 
+# 1. Import Dataset
 (x_train, y_train), (x_test, y_test) = cifar10.load_data()
 
+# Plot first few images
 for i in range(9):
     plt.subplot(330 + 1 + i)
     plt.imshow(x_train[i])
-
 plt.show()
 
+# 2. Preprocess dataset
 num_classes = 10
 y_train = to_categorical(y_train, num_classes)
 y_test = to_categorical(y_test, num_classes)
@@ -24,10 +26,7 @@ y_test = to_categorical(y_test, num_classes)
 x_train = x_train.astype('float32') / 255
 x_test = x_test.astype('float32') / 255
 
-print('x_train shape:', x_train.shape)
-print(x_train.shape[0], 'train samples')
-print(x_test.shape[0], 'test samples')
-
+# 3. Model Building
 model = Sequential()
 model.add(Input(shape=(32, 32, 3)))
 model.add(Conv2D(32, (3, 3), activation='relu', padding='same')) 
@@ -50,21 +49,18 @@ model.add(Dense(512, activation='relu', kernel_constraint=MaxNorm(3)))
 model.add(Dropout(0.2)) 
 model.add(Dense(num_classes, activation='softmax'))
 
-print(model.summary())
-
-opt = SGD(learning_rate=0.01, momentum=0.9, decay=0.0002, nesterov=False)
+# 4. Model Compilation
+opt = SGD(learning_rate=0.01, momentum=0.9, nesterov=False)
 model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
 
-classifer = model.fit(x_train, y_train, batch_size=32, epochs=1, verbose=1, validation_data=(x_test, y_test))
+# 5. Model Training (Set to 1 epoch for testing)
+model.fit(x_train, y_train, batch_size=32, epochs=1, verbose=1, validation_data=(x_test, y_test))
 print("The model has successfully trained")
 
 model.save('classifier.h5')
 print("Saving the model as classifier.h5")
 
-score = model.evaluate(x_test, y_test, verbose=0)
-print('Test loss:', score[0])
-print('Test accuracy:', score[1])
-
+# 6. Prediction Logic
 def load_image(filename):
     img = load_img(filename, target_size=(32, 32))
     img = img_to_array(img)
@@ -72,32 +68,22 @@ def load_image(filename):
     return img
 
 def run_example():
-    img = load_image('image.jpg')
-    model = load_model('classifier.h5')
-    result = model.predict(img)
-    print(result)
-    
-    if result[0][0]==1: 
-        print("Aeroplane") 
-    elif result[0][1]==1: 
-        print('Automobile') 
-    elif result[0][2]==1: 
-        print('Bird') 
-    elif result[0][3]==1: 
-        print('Cat') 
-    elif result[0][4]==1: 
-        print('Deer') 
-    elif result[0][5]==1: 
-        print('Dog') 
-    elif result[0][6]==1: 
-        print('Frog') 
-    elif result[0][7]==1: 
-        print('Horse') 
-    elif result[0][8]==1: 
-        print('Ship') 
-    elif result[0][9]==1: 
-        print('Truck') 
-    else: 
-        print('Error')
+    try:
+        # ABSOLUTE PATH FIX HERE:
+        img_path = r"C:\Users\tanvi\OneDrive\Documents\Codingal\Courses\AI & Coding Grandmaster (Grades 9-12)\Module 21 (Deep Learning - II)\Lesson 4 (Image classifier using CNN part – 2)\Activity 1 (Image Classification using CNN - Part 2)\image.jpg"
+        
+        img = load_image(img_path)
+        model = load_model('classifier.h5')
+        result = model.predict(img)
+        
+        # In multi-class, we look for the index with the highest probability
+        prediction = np.argmax(result)
+        classes = ["Aeroplane", "Automobile", "Bird", "Cat", "Deer", "Dog", "Frog", "Horse", "Ship", "Truck"]
+        
+        print(f"\nPrediction Result: {classes[prediction]}")
+        print(f"Probabilities: {result}")
+        
+    except FileNotFoundError:
+        print("\n[ERROR] Could not find the image. Please verify the absolute path.")
 
 run_example()
