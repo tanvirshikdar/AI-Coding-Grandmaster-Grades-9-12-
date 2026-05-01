@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Resume Builder</h1>
+        <form action="/resume" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="education">Education</label>
+                <textarea id="education" name="education" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="experience">Work Experience</label>
+                <textarea id="experience" name="experience" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="skills">Skills</label>
+                <textarea id="skills" name="skills" rows="2" required></textarea>
+            </div>
+            <button type="submit">Generate Resume</button>
+        </form>
+    </div>
+</body>
+
+</html>
